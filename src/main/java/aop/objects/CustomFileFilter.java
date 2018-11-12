@@ -3,6 +3,7 @@ package aop.objects;
 import java.io.File;
 import java.io.FilenameFilter;
 
+//фильтр файлов по расширению
 public class CustomFileFilter implements FilenameFilter {
 
     String ext;

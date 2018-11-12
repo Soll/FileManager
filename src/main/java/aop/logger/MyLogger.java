@@ -1,7 +1,5 @@
 package aop.logger;
 
-import aop.annotations.ShowResult;
-import aop.annotations.ShowTime;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Around;
@@ -12,15 +10,17 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 import java.util.Set;
 
+//Аспект для определения времени работы методов
 @Component
 @Aspect
 public class MyLogger {
 
+    //все методы из пакета objects
     @Pointcut("execution(public * * (..)) && within(aop.objects.*)")
     private void allMethods() {
-
     }
 
+    //до и после выполения метода с аннтоацией ShowTime
     @Around("allMethods() && @annotation(aop.annotations.ShowTime)")
     public Object watchTime(ProceedingJoinPoint joinPoint) {
 
@@ -40,6 +40,7 @@ public class MyLogger {
         return output;
     }
 
+    //после возвращения значения по аннотации ShowResult
     @AfterReturning(pointcut = "allMethods() && @annotation(aop.annotations.ShowResult)", returning = "obj")
     public void print(Object obj) {
         if (obj instanceof Set) {

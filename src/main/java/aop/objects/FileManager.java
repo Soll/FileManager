@@ -11,9 +11,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+//класс содержит 2 метода для определния списка расширений и подсчет количества расширений в папке
 @Component
 public class FileManager {
 
+    //возвращает упорядоченный сет из расширентй в папке
     @ShowResult
     public Set<String> getExtensionsList(String folder) {
 
@@ -28,12 +30,11 @@ public class FileManager {
             if (file.isFile() && i != -1) {
                 extList.add(fileName.substring(i + 1, fileName.length()).toLowerCase());
             }
-
         }
-
         return extList;
     }
 
+    //возвращает карту с парами - Расширение - Количество расширений
    @ShowTime
     public Map<String, Integer> getExtensionsCount(String folder) {
 
@@ -44,9 +45,6 @@ public class FileManager {
             FilenameFilter filter = new CustomFileFilter(extension);
             map.put(extension, dir.listFiles(filter).length);
         }
-
         return map;
-
     }
-
 }
