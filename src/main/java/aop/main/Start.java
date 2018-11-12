@@ -14,5 +14,4 @@ public class Start {
         fileManager.getExtensionsCount("c:\\windows");
 
     }
-
 }
