@@ -52,7 +52,6 @@ public class MyLogger {
         } else if (obj instanceof Map) {
             Map map = (Map) obj;
 
-            final long[] i = {0};
             map.forEach((k, v) -> System.out.println(k + " - " + v));
 
             /*for (Iterator iterator = (Iterator) map.entrySet().iterator(); iterator.hasNext(); ) {
