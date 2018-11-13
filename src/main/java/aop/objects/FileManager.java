@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-//класс содержит 2 метода для определния списка расширений и подсчет количества расширений в папке
+//2 метода для определния списка и подсчет количества расширений
 @Component
 public class FileManager {
 
@@ -35,7 +35,7 @@ public class FileManager {
     }
 
     //возвращает карту с парами - Расширение - Количество расширений
-   @ShowTime
+    @ShowTime
     public Map<String, Integer> getExtensionsCount(String folder) {
 
         File dir = new File(folder);
